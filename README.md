@@ -1,6 +1,6 @@
 # project-demo
 
-demo the use with project object
+demo the use with project object 
 
 see documentation in: https://docs.mlrun.org/en/latest/projects/overview.html
 
