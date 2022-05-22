@@ -15,7 +15,6 @@ pipeline {
                MLRUN_DBPATH='https://mlrun-api.default-tenant.app.us-sales-341.iguazio-cd1.com'
                V3IO_ACCESS_KEY=credentials('V3IO_ACCESS_KEY')
                V3IO_USERNAME='xingsheng'
-               V3IO_API="https://default-tenant.app.us-sales-341.iguazio-cd1.com:8444"
             }
             agent {
                 docker {
