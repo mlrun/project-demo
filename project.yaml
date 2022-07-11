@@ -19,6 +19,12 @@ spec:
     name: test
   - url: hub://v2_model_server
     name: serve
+  - url: gen_iris.py
+    name: gen-iris
+    image: mlrun/mlrun
+    handler: iris_generator
+    requirements:
+    - requests
   workflows:
   - name: main
     path: ./kflow.py
