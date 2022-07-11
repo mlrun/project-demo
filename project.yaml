@@ -11,8 +11,6 @@ spec:
     image: mlrun/mlrun
     handler: prep_data
     with_repo: true
-  - url: hub://describe
-    name: describe
   - url: hub://sklearn_classifier
     name: train
   - url: hub://test_classifier

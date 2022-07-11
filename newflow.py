@@ -28,14 +28,6 @@ def newpipe():
     ).after(builder)
     print(ingest.outputs)
 
-    # analyze our dataset
-    run_function(
-        "describe",
-        name="summary",
-        params={"label_column": project.get_param("label", "label")},
-        inputs={"table": ingest.outputs[DATASET]},
-    )
-
     # train with hyper-paremeters
     train = run_function(
         "train",
