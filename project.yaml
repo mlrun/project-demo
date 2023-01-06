@@ -12,9 +12,7 @@ spec:
     handler: prep_data
     with_repo: true
   - url: hub://auto_trainer
-    name: train
-  - url: hub://auto_trainer
-    name: test
+    name: auto_trainer
   - url: hub://v2_model_server
     name: serve
   - url: gen_iris.py
