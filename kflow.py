@@ -33,7 +33,7 @@ def kfpipeline(model_class=default_pkg_class, build=0):
     prep_data = (
         funcs["prep-data"]
         .as_step(
-            name="prep_data",
+            name="prep-data",
             inputs={"source_url": project.get_artifact_uri("data")},
             outputs=["cleaned_data"],
         )
@@ -42,7 +42,7 @@ def kfpipeline(model_class=default_pkg_class, build=0):
 
     # train the model using a library (hub://) function and the generated data
     # no need to define handler in this step because the train function is the default handler
-    train = funcs["auto_trainer"].as_step(
+    train = funcs["auto-trainer"].as_step(
         name="train",
         inputs={"dataset": prep_data.outputs["cleaned_data"]},
         params={
@@ -53,7 +53,7 @@ def kfpipeline(model_class=default_pkg_class, build=0):
     )
 
     # test the model using a library (hub://) function and the generated model
-    funcs["auto_trainer"].as_step(
+    funcs["auto-trainer"].as_step(
         name="test",
         handler="evaluate",
         params={"label_columns": "label", "model": train.outputs["model"]},

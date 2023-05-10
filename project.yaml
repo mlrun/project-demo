@@ -11,9 +11,9 @@ spec:
     image: mlrun/mlrun
     handler: prep_data
     with_repo: true
-  - url: hub://auto_trainer
-    name: auto_trainer
-  - url: hub://v2_model_server
+  - url: hub://auto-trainer
+    name: auto-trainer
+  - url: hub://v2-model-server
     name: serve
   - url: gen_iris.py
     name: gen-iris
