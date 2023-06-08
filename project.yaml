@@ -29,9 +29,12 @@ spec:
     path: ./newflow.py
     handler: newpipe
   artifacts:
-  - kind: ''
-    target_path: https://s3.wasabisys.com/iguazio/data/iris/iris.data.raw.csv
-    key: data
+  - kind: artifact
+    metadata:
+      project: pipe
+      key: data
+    spec:
+      target_path: https://s3.wasabisys.com/iguazio/data/iris/iris.data.raw.csv
   source: ./
   subpath: ''
   origin_url: ''
