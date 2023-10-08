@@ -54,7 +54,14 @@ def newpipe():
     train = run_function(
         "auto-trainer",
         name="train",
-        params={"label_columns": LABELS, "train_test_split_size": 0.10},
+        params={
+            "label_columns": LABELS, 
+            "train_test_split_size": 0.10,
+
+            # for determinism, we need datasets to be split
+            # evenly datasets will include examples from all classes
+            "random_state": 7,
+        },
         hyperparams={
             "model_class": [
                 "sklearn.ensemble.RandomForestClassifier",
@@ -76,10 +83,6 @@ def newpipe():
         params={
             "label_columns": LABELS, 
             "model": train.outputs["model"],
-
-            # for determinism, we need datasets to be split
-            # evenly datasets will include examples from all classes
-            "random_state": 7,
         },
         inputs={
             "dataset": train.outputs["test_set"],
