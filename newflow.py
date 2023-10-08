@@ -76,6 +76,9 @@ def newpipe():
         params={
             "label_columns": LABELS, 
             "model": train.outputs["model"],
+
+            # for determinism, we need datasets to be split
+            # evenly datasets will include examples from all classes
             "random_state": 7,
         },
         inputs={
