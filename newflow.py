@@ -73,7 +73,11 @@ def newpipe():
         "auto-trainer",
         name="test",
         handler="evaluate",
-        params={"label_columns": LABELS, "model": train.outputs["model"]},
+        params={
+            "label_columns": LABELS, 
+            "model": train.outputs["model"],
+            "random_state": 7,
+        },
         inputs={
             "dataset": train.outputs["test_set"],
         },
