@@ -31,6 +31,13 @@ def setup(project: mlrun.projects.MlrunProject) -> mlrun.projects.MlrunProject:
         handler="prep_data",
     )
 
+    project.set_function(
+        name="gen-iris",
+        func="gen_iris.py",
+        kind="job",
+        handler="iris_generator",
+    )
+
     project.log_artifact(
         "data",
         target_path="https://s3.wasabisys.com/iguazio/data/iris/iris.data.raw.csv",
