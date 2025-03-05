@@ -31,6 +31,10 @@ def setup(project: mlrun.projects.MlrunProject) -> mlrun.projects.MlrunProject:
         handler="iris_generator",
     )
 
+    project.set_function("hub://auto-trainer", "auto-trainer")
+    project.set_function("hub://v2-model-server", "serving")
+    project.set_function("hub://describe")
+
     project.log_artifact(
         "data",
         target_path="https://s3.wasabisys.com/iguazio/data/iris/iris.data.raw.csv",
