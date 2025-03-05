@@ -36,5 +36,4 @@ def setup(project: mlrun.projects.MlrunProject) -> mlrun.projects.MlrunProject:
         target_path="https://s3.wasabisys.com/iguazio/data/iris/iris.data.raw.csv",
     )
 
-    project.save()
     return project
