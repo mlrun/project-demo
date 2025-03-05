@@ -17,13 +17,6 @@ import mlrun
 
 
 def setup(project: mlrun.projects.MlrunProject) -> mlrun.projects.MlrunProject:
-    source = project.get_param("source")
-
-    # Set project git/archive source and enable pulling latest code at runtime
-    if source:
-        print(f"Project Source: {source}")
-        project.set_source(project.get_param("source"), pull_at_runtime=True)
-
     project.set_function(
         name="prep-data",
         func="prep_data.py",
